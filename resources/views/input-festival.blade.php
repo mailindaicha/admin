@@ -362,7 +362,6 @@
                         <span class="input-group-text">Upload Image</span>
                     </div>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile01">
                         <label class="custom-file-label" for="gambar">Choose file</label>
                         <input type="file" class="custom-file-input" id="gambar" name="gambar">
                     </div>
