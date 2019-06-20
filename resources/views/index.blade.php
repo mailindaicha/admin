@@ -84,6 +84,7 @@
     <section id="chart" class="wow fadeInUp">
         <div class="container">
         <div class="reviews-area hidden-xs">
+        @foreach($data as $value)
             <div class="work-us">
               <div class="work-left-text">
                     <img width="350" height="350" src="img2/about/2.jpg" alt=""></br>
@@ -93,6 +94,7 @@
                   <img width="500" height="450" src="img2/about/1.jpg" alt="">
               </div>
             </div>
+            @endforeach
           </div>
         </div>
     </section><!-- #chart -->
