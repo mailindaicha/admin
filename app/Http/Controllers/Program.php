@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Intervention\Image\ImageManagerStatic as Image;
-use App\ModelFestival;
+use App\ModelProgram;
 use Illuminate\Http\Request;
 use DB;
 
-class Festival extends Controller
+
+class Program extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +17,8 @@ class Festival extends Controller
      */
     public function index()
     {
-        $festivals = ModelFestival::all()->toArray;
-        return view('input-festival',compact('festivals'));
+        $festivals = ModelProgram::all()->toArray;
+        return view('input-program',compact('programs'));
     }
 
     /**
@@ -27,7 +28,7 @@ class Festival extends Controller
      */
     public function create()
     {
-        return view('input-festival');
+        return view('input-program');
     }
 
     /**
@@ -38,18 +39,18 @@ class Festival extends Controller
      */
     public function store(Request $request)
     {
-       // dd($request);
-        $data = new ModelFestival();
-            $data->title=$request->title;
+        //dd($request);
+        $dataprogram = new ModelProgram();
+            $dataprogram->title=$request->title;
             $image = $request->file('gambar');
             $filename  = date('m-d-Y_hia').'.'.$image->getClientOriginalExtension();
             $image->move('upload',$filename);
 
-            $data->image = $filename;
-            $data->content = $request->content;
+            $dataprogram->image = $filename;
+            $dataprogram->content = $request->content;
 
-         if($data->save()) return redirect('/input')->with('success', 'Data berhasil diinput');
-        else return redirect('/input')->with('failed', 'Data gagal diinput');
+         if($dataprogram->save()) return redirect('/input-program')->with('success', 'Data berhasil diinput');
+        else return redirect('/input-program')->with('failed', 'Data gagal diinput');
     }
 
     /**
@@ -96,12 +97,4 @@ class Festival extends Controller
     {
         //
     }
-
-    
-    function allfestival(){
-        $data = DB::table('model_festivals')->get();
-        return view('index', compact('data')); 
-    }
-     
 }
-
