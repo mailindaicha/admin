@@ -31,4 +31,24 @@ Route::get('/input-kabar', function () {
     return view('input-kabar');
 });
 
+Route::get('/input-kabar', function () {
+    return view('input-kabar');
+});
+
 Route::resource('festival', 'Festival');
+
+Route::resource('program', 'Program');
+
+
+Route::get('/input', function () {
+    return view('input-festival');
+});
+
+Route::get('/index', function () {
+    return view('index');
+});
+
+Route::get('/allfestival', 'festival@allfestival'); //aliasiscontroller-function
+
+
+
